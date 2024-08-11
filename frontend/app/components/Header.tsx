@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { FC, useState } from "react";
+import NavIteams from "../utils/NavIteams";
 
 type Props = {
   open: boolean;
@@ -8,7 +9,7 @@ type Props = {
   activeIteam: number;
 };
 
-const Header: FC<Proops> = (props) => {
+const Header: FC<Props> = ({ activeIteam }) => {
   const [active, setActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -31,18 +32,24 @@ const Header: FC<Proops> = (props) => {
             : "w-full border-b dark:border-[#fff1c] h-[80px] z-[80] dark:shadow"
         }`}
       >
-        <div className="w-[95%] 800:w-[92%] m-auto py-2 h-full">
-          <div className="w-full h-[80] flex items-center justify-between p-3">
-            <Link
-              href={"/"}
-              className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white blog-title font-[Poppins] hover:scale-110 transition duration-300 italic"
-            >
-              <span className=" animate-typing px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white font-bold italic">
-                Sticky
-              </span>
-              Learning
-            </Link>
+        <div className="w-[95%] 800px:w-[92%] m-auto py-2 h-full">
+          <div className="w-full h-[80px] flex items-center justify-between p-3">
+            <div>
+              <Link
+                href={"/"}
+                className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white blog-title font-[Poppins] hover:scale-110 transition duration-300 italic"
+              >
+                <span className=" animate-typing px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white font-bold italic">
+                  Sticky
+                </span>
+                Learning
+              </Link>
+            </div>
+            <div className="flex items-center">
+            <NavIteams activeIteam={activeIteam} isMobile={false} />
           </div>
+          </div>
+          
         </div>
       </div>
     </div>
