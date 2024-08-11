@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { FC, useState } from "react";
 import NavIteams from "../utils/NavIteams";
+import { TheameSwitcher } from "../utils/TheameSwitcher";
 
 type Props = {
   open: boolean;
@@ -37,7 +38,7 @@ const Header: FC<Props> = ({ activeIteam }) => {
             <div>
               <Link
                 href={"/"}
-                className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white blog-title font-[Poppins] hover:scale-110 transition duration-300 italic"
+                className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold text-black dark:text-white blog-title font-[Poppins] hover:scale-110 transition duration-300 italic"
               >
                 <span className=" animate-typing px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white font-bold italic">
                   Sticky
@@ -46,10 +47,10 @@ const Header: FC<Props> = ({ activeIteam }) => {
               </Link>
             </div>
             <div className="flex items-center">
-            <NavIteams activeIteam={activeIteam} isMobile={false} />
+              <NavIteams activeIteam={activeIteam} isMobile={false} />
+              <TheameSwitcher />
+            </div>
           </div>
-          </div>
-          
         </div>
       </div>
     </div>

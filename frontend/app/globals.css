@@ -75,3 +75,18 @@ body {
     border-color: white;
   }
 }
+
+
+:root {
+  --transition-duration: 300ms;
+}
+
+body {
+  transition: background-color var(--transition-duration) ease-in-out,
+              color var(--transition-duration) ease-in-out;
+}
+
+.dark body {
+  transition: background-color var(--transition-duration) ease-in-out,
+              color var(--transition-duration) ease-in-out;
+}
