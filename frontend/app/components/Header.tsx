@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { FC, useState } from "react";
 import NavIteams from "../utils/NavIteams";
 import { TheameSwitcher } from "../utils/TheameSwitcher";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 type Props = {
   open: boolean;
@@ -46,9 +47,18 @@ const Header: FC<Props> = ({ activeIteam }) => {
                 Learning
               </Link>
             </div>
+
             <div className="flex items-center">
               <NavIteams activeIteam={activeIteam} isMobile={false} />
               <TheameSwitcher />
+              {/* only for mobile */}
+              <div className="800px:hidden">
+                <HiOutlineMenuAlt3
+                  onClick={() => setOpenSidebar(true)}
+                  className="cursor-pointer text-black dark:text-white"
+                  size={25}
+                />
+              </div>
             </div>
           </div>
         </div>
