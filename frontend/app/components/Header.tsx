@@ -4,6 +4,7 @@ import React, { FC, useState } from "react";
 import NavIteams from "../utils/NavIteams";
 import { TheameSwitcher } from "../utils/TheameSwitcher";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { FaUserCircle } from "react-icons/fa";
 
 type Props = {
   open: boolean;
@@ -11,7 +12,7 @@ type Props = {
   activeIteam: number;
 };
 
-const Header: FC<Props> = ({ activeIteam }) => {
+const Header: FC<Props> = ({ activeIteam, setOpen }) => {
   const [active, setActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -59,6 +60,11 @@ const Header: FC<Props> = ({ activeIteam }) => {
                   size={25}
                 />
               </div>
+              <FaUserCircle
+                onClick={() => setOpenSidebar(true)}
+                className="cursor-pointer text-black dark:text-white"
+                size={25}
+              />
             </div>
           </div>
         </div>
