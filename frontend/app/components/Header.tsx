@@ -25,7 +25,11 @@ const Header: FC<Props> = ({ activeIteam, setOpen }) => {
       }
     });
   }
-
+  const handleClose = (e: any) => {
+    if (e.target.id === "screen") {
+      setOpenSidebar(false);
+    }
+  };
   return (
     <div className="w-full relative">
       <div
@@ -61,13 +65,36 @@ const Header: FC<Props> = ({ activeIteam, setOpen }) => {
                 />
               </div>
               <FaUserCircle
-                onClick={() => setOpenSidebar(true)}
-                className="cursor-pointer text-black dark:text-white"
+                className="hidden 800px:block cursor-pointer text-black dark:text-white"
                 size={25}
+                onClick={() => setOpenSidebar(true)}
               />
             </div>
           </div>
         </div>
+
+        {/* mobile sidebar */}
+        {openSidebar && (
+          <div
+            className="fixed w-full h-screen top-0 left-0 z-[99999] bg-[#00000024] dark:bg-[unset]"
+            onClick={handleClose}
+            id="screen"
+          >
+            <div className="w-[70%] fixed z-[999999999] h-screen bg-white dark:bg-slate-900 dark:bg-opacity-90 top-0 right-0">
+              <NavIteams activeIteam={activeIteam} isMobile={true} />
+              <FaUserCircle
+                onClick={() => setOpenSidebar(true)}
+                className="cursor-pointer ml-5 my-2 text-black dark:text-white"
+                size={25}
+              />
+              <br />
+              <br />
+              <p className="text-[16px] px-2 pl-2 text-black dark:text-white">
+                Copyright &copy; {new Date().getFullYear()} Sticky Learning
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
