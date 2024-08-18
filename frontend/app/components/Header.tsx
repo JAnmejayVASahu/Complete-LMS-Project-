@@ -5,14 +5,18 @@ import NavIteams from "../utils/NavIteams";
 import { TheameSwitcher } from "../utils/TheameSwitcher";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FaUserCircle } from "react-icons/fa";
+import CustomeModel from "../utils/CustomeModel";
+import Login from "./Auth/login";
 
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   activeIteam: number;
+  route: string;
+  setRoute: string;
 };
 
-const Header: FC<Props> = ({ activeIteam, setOpen }) => {
+const Header: FC<Props> = ({ activeIteam, setOpen, route, open, setRoute }) => {
   const [active, setActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -96,6 +100,19 @@ const Header: FC<Props> = ({ activeIteam, setOpen }) => {
           </div>
         )}
       </div>
+      {route === "Log-In" && (
+        <>
+          {open && (
+            <CustomeModel
+              open={open}
+              setOpen={setOpen}
+              setRoute={setRoute}
+              activeItem={activeIteam}
+              component={Login}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 };

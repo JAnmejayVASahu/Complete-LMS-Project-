@@ -10,6 +10,7 @@ type Props = {};
 const Hero: FC<Props> = (props) => {
   const [search, setSearch] = useState("");
   const router = useRouter();
+  
   const handleSearch = () => {
     if (search === "") {
       return;
