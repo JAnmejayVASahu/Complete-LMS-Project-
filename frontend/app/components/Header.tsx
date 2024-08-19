@@ -7,6 +7,7 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FaUserCircle } from "react-icons/fa";
 import CustomeModel from "../utils/CustomeModel";
 import Login from "./Auth/login";
+import Signup from "./Auth/SignUp";
 
 type Props = {
   open: boolean;
@@ -16,7 +17,7 @@ type Props = {
   setRoute: (route: string) => void;
 };
 
-const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
+const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute}) => {
   const [active, setActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -123,7 +124,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
               setOpen={setOpen}
               setRoute={setRoute}
               activeItem={activeItem}
-              component={Login}
+              component={Signup}
             />
           )}
         </>
