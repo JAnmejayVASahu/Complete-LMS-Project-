@@ -16,6 +16,27 @@
   }
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1771c6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f5f5f5b0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #32ae7e;
+}
 body {
   color: rgb(var(--foreground-rgb));
 }
@@ -59,8 +80,6 @@ body {
   }
 }
 
-
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -96,31 +115,16 @@ body {
   }
 }
 
-
 :root {
   --transition-duration: 300ms;
 }
 
 body {
   transition: background-color var(--transition-duration) ease-in-out,
-              color var(--transition-duration) ease-in-out;
+    color var(--transition-duration) ease-in-out;
 }
 
 .dark body {
   transition: background-color var(--transition-duration) ease-in-out,
-              color var(--transition-duration) ease-in-out;
+    color var(--transition-duration) ease-in-out;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

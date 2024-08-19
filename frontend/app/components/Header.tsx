@@ -11,12 +11,12 @@ import Login from "./Auth/login";
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
-  activeIteam: number;
+  activeItem: number;
   route: string;
-  setRoute: string;
+  setRoute: (route: string) => void;
 };
 
-const Header: FC<Props> = ({ activeIteam, setOpen, route, open, setRoute }) => {
+const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
   const [active, setActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -31,7 +31,9 @@ const Header: FC<Props> = ({ activeIteam, setOpen, route, open, setRoute }) => {
   }
   const handleClose = (e: any) => {
     if (e.target.id === "screen") {
-      setOpenSidebar(false);
+      {
+        setOpenSidebar(false);
+      }
     }
   };
   return (
@@ -39,8 +41,8 @@ const Header: FC<Props> = ({ activeIteam, setOpen, route, open, setRoute }) => {
       <div
         className={`${
           active
-            ? "dark:bg-opacity-50 : dark:bg-gradient-to-b dark:from-gray-900 dark:to-black fixed top-0 left-0 w-full h-[80px] z-[80] border-b dark:border-[#fff] shadow-xl transition duration-500"
-            : "w-full border-b dark:border-[#fff1c] h-[80px] z-[80] dark:shadow"
+            ? "dark:bg-opacity-50 bg-white dark:bg-gradient-to-b dark:from-gray-900 dark:to-black fixed top-0 left-0 w-full h-[80px] z-[80] border-b dark:border-[#ffffff1c] shadow-xl transition duration-500"
+            : "w-full border-b dark:border-[#ffffff1c] h-[80px] z-[80] dark:shadow"
         }`}
       >
         <div className="w-[95%] 800px:w-[92%] m-auto py-2 h-full">
@@ -58,7 +60,7 @@ const Header: FC<Props> = ({ activeIteam, setOpen, route, open, setRoute }) => {
             </div>
 
             <div className="flex items-center">
-              <NavIteams activeIteam={activeIteam} isMobile={false} />
+              <NavIteams activeItem={activeItem} isMobile={false} />
               <TheameSwitcher />
               {/* only for mobile */}
               <div className="800px:hidden">
@@ -71,7 +73,7 @@ const Header: FC<Props> = ({ activeIteam, setOpen, route, open, setRoute }) => {
               <FaUserCircle
                 className="hidden 800px:block cursor-pointer text-black dark:text-white"
                 size={25}
-                onClick={() => setOpenSidebar(true)}
+                onClick={() => setOpen(true)}
               />
             </div>
           </div>
@@ -85,9 +87,9 @@ const Header: FC<Props> = ({ activeIteam, setOpen, route, open, setRoute }) => {
             id="screen"
           >
             <div className="w-[70%] fixed z-[999999999] h-screen bg-white dark:bg-slate-900 dark:bg-opacity-90 top-0 right-0">
-              <NavIteams activeIteam={activeIteam} isMobile={true} />
+              <NavIteams activeItem={activeItem} isMobile={true} />
               <FaUserCircle
-                onClick={() => setOpenSidebar(true)}
+                onClick={() => setOpen(true)}
                 className="cursor-pointer ml-5 my-2 text-black dark:text-white"
                 size={25}
               />
@@ -100,14 +102,27 @@ const Header: FC<Props> = ({ activeIteam, setOpen, route, open, setRoute }) => {
           </div>
         )}
       </div>
-      {route === "Log-In" && (
+      {route === "Login" && (
         <>
           {open && (
             <CustomeModel
               open={open}
               setOpen={setOpen}
               setRoute={setRoute}
-              activeItem={activeIteam}
+              activeItem={activeItem}
+              component={Login}
+            />
+          )}
+        </>
+      )}
+      {route === "Sign-Up" && (
+        <>
+          {open && (
+            <CustomeModel
+              open={open}
+              setOpen={setOpen}
+              setRoute={setRoute}
+              activeItem={activeItem}
               component={Login}
             />
           )}

@@ -4,12 +4,13 @@ import {Modal, Box} from '@mui/material'
 type Props = {
     open: boolean;
     setOpen: (open: boolean) => void;
-    activeIteam: any;
+    activeItem: any;
     component: any;
     setRoute: (route: string) => void;
+    refetch?:any;
 }
 
-const CustomeModel: FC<Props> = ({open, setOpen, component:Component, setRoute}) => {
+const CustomeModel: FC<Props> = ({open, setOpen, component:Component, setRoute, refetch}) => {
   return (
     <Modal 
     open = {open}
@@ -20,7 +21,7 @@ const CustomeModel: FC<Props> = ({open, setOpen, component:Component, setRoute})
         <Box
       className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[95%] m-auto  800px:w-[450px] bg-white dark:bg-slate-900 rounded-[8px] shadow p-4 outline-none"
       >
-        <Component setOpen={setOpen} setRoute={setRoute} refetch={refesch} />
+        <Component setOpen={setOpen} setRoute={setRoute} refetch={refetch} />
       </Box>
     </Modal>
   )

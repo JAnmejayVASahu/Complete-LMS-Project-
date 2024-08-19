@@ -24,11 +24,11 @@ export const navIteamsData = [
   },
 ];
 type Props = {
-  activeIteam: number;
+  activeItem: number;
   isMobile: boolean;
 };
 
-const NavItems: React.FC<Props> = ({ activeIteam, isMobile }) => {
+const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
   return (
     <>
       <div className="hidden md:flex">
@@ -36,7 +36,7 @@ const NavItems: React.FC<Props> = ({ activeIteam, isMobile }) => {
           <Link href={item.url} key={index} passHref className="mx-4">
             <span
               className={`${
-                activeIteam === index
+                activeItem === index
                   ? "text-[#37a39a] dark:text-[#37a39a]"
                   : "text-black dark:text-white"
               } text-[18px] px-6 font-Poppins font-[400]`}
@@ -63,7 +63,7 @@ const NavItems: React.FC<Props> = ({ activeIteam, isMobile }) => {
             <Link href={item.url} key={index} passHref>
               <span
                 className={`${
-                  activeIteam === index
+                  activeItem === index
                     ? "text-[#37a39a] dark:text-[#37a39a]"
                     : "text-black dark:text-white"
                 } block py-5 text-[18px] px-6 font-Poppins font-[400]`}
