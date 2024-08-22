@@ -25,11 +25,9 @@ const Hero: FC<Props> = (props) => {
         <div className="absolute top-[100px] 1000px:top-[unset] 1500px:h-[700px] 1500px:w-[700px] 1100px:h-[600px] 1100px:w-[600px] h-[40vh] left-5 w-[40vh] hero_animation rounded-[50%] 1100px:left-8 1500px:left-14"></div>
         <div className="1000px:w-[40%] flex 1000px:min-h-screen items-center justify-end pt-[70px] 1000px:pt-[0] z-10">
           <Image
-            src={require("../../../public/assets/learning.png")}
+            src={require("../../../public/asseests/learning.png")}
             alt=""
-            width={400}
-            height={400}
-            className="object-contain 1100px:max-w-[90%] w-[90%] 1500px:max-w-[85%] h-[auto] z-[10]"
+            className="object-contain 1100px:max-w-[90%] 1500px:max-w-[85%] h-[auto] z-[10]"
           />
         </div>
         <div className="1000px:w-[60%] flex flex-col items-center 1000px:mt-[0px] text-center 1000px:text-left mt-[150px]">
@@ -62,21 +60,21 @@ const Hero: FC<Props> = (props) => {
 
           <div className="1500px:w-[55%] 1100px:w-[78%] w-[90%] flex items-center">
             <Image
-              src={require("../../../public/assets/menClientClient.png")}
+              src={require("../../../public/asseests/menClient.png")}
               alt=""
               className="rounded-full"
             />
             <Image
-              src={require("../../../public/assets/owmen.jpg")}
+              src={require("../../../public/asseests/owmen.png")}
               alt=""
               className="rounded-full ml-[-20px]"
             />
             <Image
-              src={require("../../../public/assets/menClientClient.png")}
+              src={require("../../../public/asseests/owmen.png")}
               alt=""
               className="rounded-full ml-[-20px]"
             />
-            <p className="font-Josefin_Sans dark:text-[#edfff4] text-[#000000b3] 1000px:pl-3 text-[18px] font-[600]">
+            <p className="font-Josefin dark:text-[#edfff4] text-[#000000b3] 1000px:pl-3 text-[18px] font-[600]">
               500K+ People already trusted us.{" "}
               <Link
                 href="/courses"

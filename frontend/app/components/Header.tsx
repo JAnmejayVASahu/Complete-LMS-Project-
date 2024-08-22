@@ -9,6 +9,9 @@ import CustomeModel from "../utils/CustomeModel";
 import Login from "./Auth/login";
 import Signup from "./Auth/SignUp";
 import Verification from "./Auth/Verification";
+import { useSelector } from "react-redux";
+import avatar from "../../public/asseests/avatar.png";
+import Image from "next/image";
 
 type Props = {
   open: boolean;
@@ -21,6 +24,7 @@ type Props = {
 const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
   const [active, setActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
+  const { user } = useSelector((state: any) => state.auth);
 
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", () => {
@@ -38,6 +42,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
       }
     }
   };
+  console.log(user);
   return (
     <div className="w-full relative">
       <div
@@ -72,11 +77,21 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                   size={25}
                 />
               </div>
-              <FaUserCircle
-                className="hidden 800px:block cursor-pointer text-black dark:text-white"
-                size={25}
-                onClick={() => setOpen(true)}
-              />
+              {user ? (
+                <Link href={"/profile"}>
+                  <Image
+                    src={user.avatar ? user.avatar : avatar}
+                    alt=""
+                    className="w-[30px] h-[30px] rounded-full cursor-pointer"
+                  />
+                </Link>
+              ) : (
+                <FaUserCircle
+                  className="hidden 800px:block cursor-pointer text-black dark:text-white"
+                  size={25}
+                  onClick={() => setOpen(true)}
+                />
+              )}
             </div>
           </div>
         </div>

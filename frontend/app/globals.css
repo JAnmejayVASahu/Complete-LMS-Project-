@@ -3,9 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  /* --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255; */
+  --transition-duration: 300ms;
+}
+
+body {
+  transition: background-color var(--transition-duration) ease-in-out,
+    color var(--transition-duration) ease-in-out;
+}
+
+.dark body {
+  transition: background-color var(--transition-duration) ease-in-out,
+    color var(--transition-duration) ease-in-out;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -134,18 +145,4 @@ body {
   50% {
     border-color: white;
   }
-}
-
-:root {
-  --transition-duration: 300ms;
-}
-
-body {
-  transition: background-color var(--transition-duration) ease-in-out,
-    color var(--transition-duration) ease-in-out;
-}
-
-.dark body {
-  transition: background-color var(--transition-duration) ease-in-out,
-    color var(--transition-duration) ease-in-out;
 }
