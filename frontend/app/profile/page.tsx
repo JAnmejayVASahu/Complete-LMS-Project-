@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Protected from "../hooks/useProtected";
 import Heading from "../utils/heading";
 import Header from "../components/Header";
+import Profile from "./Profile";
 
 type Props = {};
 
@@ -28,6 +29,7 @@ const Page: FC<Props> = (props) => {
           setRoute={setRoute}
           route={route}
         />
+        <Profile user={user} />
       </Protected>
     </div>
   );
