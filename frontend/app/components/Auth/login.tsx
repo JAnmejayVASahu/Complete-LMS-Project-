@@ -55,7 +55,7 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
 
   return (
     <div className="w-full">
-      <h1 className={`${styles.title}`}>Login with Sticky Learning</h1>
+      <h1 className={`${styles.title}`}>Login with ELearning</h1>
       <form onSubmit={handleSubmit}>
         <label className={`${styles.label}`} htmlFor="email">
           Enter your Email
@@ -66,7 +66,7 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
           value={values.email}
           onChange={handleChange}
           id="email"
-          placeholder="stickylearing@gmail.com"
+          placeholder="loginmail@gmail.com"
           className={`${errors.email && touched.email && "border-red-500"} ${
             styles.input
           }`}
