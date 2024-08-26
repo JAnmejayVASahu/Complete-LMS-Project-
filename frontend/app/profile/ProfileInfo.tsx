@@ -52,7 +52,7 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
     if (name !== "") {
       await editProfile({
         name: name,
-      }); 
+      });
     }
   };
 
