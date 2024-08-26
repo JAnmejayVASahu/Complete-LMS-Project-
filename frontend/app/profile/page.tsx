@@ -18,7 +18,7 @@ const Page: FC<Props> = (props) => {
     <div className="min-h-screen">
       <Protected>
         <Heading
-          title={`${user?.name} profile - Elearning`}
+          title={`${user?.name}'s profile - Sticky Learning`}
           description="Sticky Learning is a platform for students to learn and get help from teachers"
           keywords="Prograaming,MERN,Redux,Machine Learning"
         />
