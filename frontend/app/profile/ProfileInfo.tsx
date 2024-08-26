@@ -17,11 +17,12 @@ type Props = {
 
 const ProfileInfo: FC<Props> = ({ avatar, user }) => {
   const [name, setName] = useState(user && user.name);
-  const [updateAvatar, { isSuccess, error }] = useUpdateAvatarMutation({});
-  const [loadUser, setLoadUser] = useState(false);
-  const {} = useLoadUserQuery(undefined, { skip: loadUser ? false : true });
+  const [updateAvatar, { isSuccess, error }] = useUpdateAvatarMutation();
   const [editProfile, { isSuccess: success, error: updateError }] =
     useEditProfileMutation();
+  const [loadUser, setLoadUser] = useState(false);
+  const {} = useLoadUserQuery(undefined, { skip: loadUser ? false : true });
+
   const imageHandler = async (e: any) => {
     const fileReader = new FileReader();
 
@@ -85,7 +86,7 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
       <br />
       <br />
       <div className="w-full pl-6 800px:pl-10">
-        <form onClick={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="800px:w-[50%] m-auto block pb-4">
             <div className="w-[100%]">
               <label className="block pb-2">Full Name</label>
