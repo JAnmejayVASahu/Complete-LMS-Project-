@@ -1,34 +1,35 @@
 "use client";
 
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import CourseInformation from "./CourseInformation";
 import CourseOptions from "./CourseOptions";
 import CourseData from "./CourseData";
+import CourseContent from "./CourseContent";
 
 // import CourseContent from "./CourseContent";
 // import CoursePreview from "./CoursePreview";
-// import { useCreateCourseMutation } from "../../../../redux/features/courses/coursesApi";
-// import { toast } from "react-hot-toast";
-// import { redirect } from "next/navigation";
+import { toast } from "react-hot-toast";
+import { redirect } from "next/navigation";
+import { useCreateCourseMutation } from "@/redux/features/courses/coursesApi";
 
 type Props = {};
 
 const CreateCourse = (props: Props) => {
-  // const [createCourse, { isLoading, isSuccess, error }] =
-  //   useCreateCourseMutation();
+  const [createCourse, { isLoading, isSuccess, error }] =
+    useCreateCourseMutation();
 
-  // useEffect(() => {
-  //   if (isSuccess) {
-  //     toast.success("Course created successfully");
-  //     redirect("/admin/courses");
-  //   }
-  //   if (error) {
-  //     if ("data" in error) {
-  //       const errorMessage = error as any;
-  //       toast.error(errorMessage.data.message);
-  //     }
-  //   }
-  // }, [isSuccess, error]);
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Course created successfully");
+      redirect("/admin/courses");
+    }
+    if (error) {
+      if ("data" in error) {
+        const errorMessage = error as any;
+        toast.error(errorMessage.data.message);
+      }
+    }
+  }, [isSuccess, error]);
 
   const [active, setActive] = useState(0);
   const [courseInfo, setCourseInfo] = useState({
@@ -65,57 +66,57 @@ const CreateCourse = (props: Props) => {
   const [courseData, setCourseData] = useState({});
 
 
-  // const handleSubmit = async () => {
-  //   // Format benefits array
-  //   const formattedBenefits = benefits.map((benefit) => ({
-  //     title: benefit.title,
-  //   }));
-  //   // Format prerequisites array
-  //   const formattedPrerequisites = prerequisites.map((prerequisite) => ({
-  //     title: prerequisite.title,
-  //   }));
+  const handleSubmit = async () => {
+    // Format benefits array
+    const formattedBenefits = benefits.map((benefit) => ({
+      title: benefit.title,
+    }));
+    // Format prerequisites array
+    const formattedPrerequisites = prerequisites.map((prerequisite) => ({
+      title: prerequisite.title,
+    }));
 
-  //   // Format course content array
-  //   const formattedCourseContentData = courseContentData.map(
-  //     (courseContent) => ({
-  //       videoUrl: courseContent.videoUrl,
-  //       title: courseContent.title,
-  //       description: courseContent.description,
-  //       videoLength: courseContent.videoLength,
-  //       videoSection: courseContent.videoSection,
-  //       links: courseContent.links.map((link) => ({
-  //         title: link.title,
-  //         url: link.url,
-  //       })),
-  //       suggestion: courseContent.suggestion,
-  //     })
-  //   );
+    // Format course content array
+    const formattedCourseContentData = courseContentData.map(
+      (courseContent) => ({
+        videoUrl: courseContent.videoUrl,
+        title: courseContent.title,
+        description: courseContent.description,
+        videoLength: courseContent.videoLength,
+        videoSection: courseContent.videoSection,
+        links: courseContent.links.map((link) => ({
+          title: link.title,
+          url: link.url,
+        })),
+        suggestion: courseContent.suggestion,
+      })
+    );
 
-  //   //   prepare our data object
-  //   const data = {
-  //     name: courseInfo.name,
-  //     description: courseInfo.description,
-  //     categories: courseInfo.categories,
-  //     price: courseInfo.price,
-  //     estimatedPrice: courseInfo.estimatedPrice,
-  //     tags: courseInfo.tags,
-  //     thumbnail: courseInfo.thumbnail,
-  //     level: courseInfo.level,
-  //     demoUrl: courseInfo.demoUrl,
-  //     totalVideos: courseContentData.length,
-  //     benefits: formattedBenefits,
-  //     prerequisites: formattedPrerequisites,
-  //     courseData: formattedCourseContentData,
-  //   };
-  //   setCourseData(data);
-  // };
+    //   prepare our data object
+    const data = {
+      name: courseInfo.name,
+      description: courseInfo.description,
+      categories: courseInfo.categories,
+      price: courseInfo.price,
+      estimatedPrice: courseInfo.estimatedPrice,
+      tags: courseInfo.tags,
+      thumbnail: courseInfo.thumbnail,
+      level: courseInfo.level,
+      demoUrl: courseInfo.demoUrl,
+      totalVideos: courseContentData.length,
+      benefits: formattedBenefits,
+      prerequisites: formattedPrerequisites,
+      courseData: formattedCourseContentData,
+    };
+    setCourseData(data);
+  };
 
-  // const handleCourseCreate = async (e: any) => {
-  //   const data = courseData;
-  //   if (!isLoading) {
-  //     await createCourse(data);
-  //   }
-  // };
+  const handleCourseCreate = async (e: any) => {
+    const data = courseData;
+    if (!isLoading) {
+      await createCourse(data);
+    }
+  };
 
   return (
     <div className="w-full flex min-h-screen">
@@ -140,7 +141,7 @@ const CreateCourse = (props: Props) => {
           />
         )}
 
-        {/* {active === 2 && (
+        {active === 2 && (
           <CourseContent
             active={active}
             setActive={setActive}
@@ -148,7 +149,7 @@ const CreateCourse = (props: Props) => {
             setCourseContentData={setCourseContentData}
             handleSubmit={handleSubmit}
           />
-        )} */}
+        )}
 
         {/* {active === 3 && (
           <CoursePreview
@@ -165,5 +166,6 @@ const CreateCourse = (props: Props) => {
     </div>
   );
 };
+
 
 export default CreateCourse;
