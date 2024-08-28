@@ -20,7 +20,7 @@ import {
   SettingsIcon,
   ExitToAppIcon,
 } from "./Icon";
-import avatarDefault from "../../../public/asseests/avatar.png";
+import avatarDefault from "../../../../public/asseests/avatar.png";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";

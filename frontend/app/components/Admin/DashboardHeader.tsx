@@ -1,63 +1,12 @@
 "use client";
-import { TheameSwitcher } from "../utils/TheameSwitcher";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FC, useEffect, useState } from "react";
-// import {
-//   useGetAllNotificationsQuery,
-//   useUpdateNotificationStatusMutation,
-// } from "@/redux/features/notifications/notificationsApi";
-// import socketIO from "socket.io-client";
-// import { format } from "timeago.js";
+import { TheameSwitcher } from "@/app/utils/TheameSwitcher";
 
-// const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_SERVER_URI || "";
-// const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
-
-type Props = {
-  // open?: boolean;
-  // setOpen?: any;
-};
+type Props = {};
 
 const DashboardHeader: FC<Props> = ({}) => {
   const [open, setOpen] = useState(false);
-  // const { data, refetch } = useGetAllNotificationsQuery(undefined, {
-  //   refetchOnMountOrArgChange: true,
-  // });
-  // const [updateNotificationStatus, { isSuccess }] =
-  //   useUpdateNotificationStatusMutation();
-  // const [notifications, setNotifications] = useState<any>([]);
-  // const [audio] = useState<any>(
-  //   typeof window !== "undefined" &&
-  //     new Audio(
-  //       "https://res.cloudinary.com/damk25wo5/video/upload/v1693465789/notification_vcetjn.mp3"
-  //     )
-  // );
-
-  // const playNotificationSound = () => {
-  //   audio.play();
-  // };
-
-  // useEffect(() => {
-  //   if (data) {
-  //     setNotifications(
-  //       data.notifications.filter((item: any) => item.status === "unread")
-  //     );
-  //   }
-  //   if (isSuccess) {
-  //     refetch();
-  //   }
-  //   audio.load();
-  // }, [data, isSuccess, audio]);
-
-  // useEffect(() => {
-  //   socketId.on("newNotification", (data) => {
-  //     refetch();
-  //     playNotificationSound();
-  //   });
-  // }, []);
-
-  // const handleNotificationStatusChange = async (id: string) => {
-  //   await updateNotificationStatus(id);
-  // };
 
   return (
     <div className="w-full flex items-center justify-end p-6 fixed top-5 right-0 z-[9999999]">

@@ -1,11 +1,12 @@
 "use client";
-import DashboardHero from "../components/Admin/DashboardHero";
-import AdminSidebar from "../components/Admin/sidebar/AdminSidebar";
-import AdminProtected from "../hooks/adminProtected";
-import Heading from "../utils/heading";
+import AdminProtected from "@/app/hooks/adminProtected";
+import Heading from "@/app/utils/heading";
 import React from "react";
+import AdminSidebar from "./sidebar/AdminSidebar";
+import DashboardHero from "./DashboardHero";
 
 type Props = {};
+
 const page = (props: Props) => {
   return (
     <div>
