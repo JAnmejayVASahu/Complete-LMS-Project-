@@ -236,7 +236,9 @@ const CourseContent: FC<Props> = ({
                       />
                     </div>
                     <div className="mb-3">
-                      <label className={styles.label}>Video Length (in minutes)</label>
+                      <label className={styles.label}>
+                        Video Length (in minutes)
+                      </label>
                       <input
                         type="number"
                         placeholder="20"
@@ -249,7 +251,6 @@ const CourseContent: FC<Props> = ({
                         }}
                       />
                     </div>
-                    
 
                     <div className="mb-3">
                       <label className={styles.label}>Video Description</label>
