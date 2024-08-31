@@ -1,16 +1,13 @@
 "use client";
-
-import React,{ useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CourseInformation from "./CourseInformation";
 import CourseOptions from "./CourseOptions";
 import CourseData from "./CourseData";
 import CourseContent from "./CourseContent";
-
-// import CourseContent from "./CourseContent";
-// import CoursePreview from "./CoursePreview";
 import { toast } from "react-hot-toast";
 import { redirect } from "next/navigation";
 import { useCreateCourseMutation } from "@/redux/features/courses/coursesApi";
+import CoursePreview from "./CoursePreview";
 
 type Props = {};
 
@@ -31,7 +28,7 @@ const CreateCourse = (props: Props) => {
     }
   }, [isSuccess, error]);
 
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(0);
   const [courseInfo, setCourseInfo] = useState({
     name: "",
     description: "",
@@ -39,7 +36,7 @@ const CreateCourse = (props: Props) => {
     estimatedPrice: "",
     tags: "",
     level: "",
-    categories:"",
+    categories: "",
     demoUrl: "",
     thumbnail: "",
   });
@@ -62,9 +59,7 @@ const CreateCourse = (props: Props) => {
     },
   ]);
 
-
   const [courseData, setCourseData] = useState({});
-
 
   const handleSubmit = async () => {
     // Format benefits array
@@ -110,7 +105,6 @@ const CreateCourse = (props: Props) => {
     };
     setCourseData(data);
   };
-
   const handleCourseCreate = async (e: any) => {
     const data = courseData;
     if (!isLoading) {
@@ -151,14 +145,14 @@ const CreateCourse = (props: Props) => {
           />
         )}
 
-        {/* {active === 3 && (
+        {active === 3 && (
           <CoursePreview
             active={active}
             setActive={setActive}
             courseData={courseData}
             handleCourseCreate={handleCourseCreate}
           />
-        )} */}
+        )}
       </div>
       <div className="w-[20%] mt-[100px] h-screen fixed z-[-1] top-18 right-0">
         <CourseOptions active={active} setActive={setActive} />
@@ -166,6 +160,5 @@ const CreateCourse = (props: Props) => {
     </div>
   );
 };
-
 
 export default CreateCourse;
