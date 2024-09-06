@@ -1,5 +1,4 @@
 "use client";
-
 import DashboardHeader from "@/app/components/Admin/DashboardHeader";
 import AdminSidebar from "../../components/Admin/sidebar/AdminSidebar";
 import CreateCourse from "../../components/Course/CreateCourse";
