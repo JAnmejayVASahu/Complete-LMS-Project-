@@ -12,7 +12,6 @@ import {
 } from "@/redux/features/user/userApi";
 import { styles } from "@/app/styles/style";
 import { toast } from "react-hot-toast";
-import type { Option } from "react";
 
 type Props = {
   isTeam?: boolean;
